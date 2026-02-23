@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,105 +7,43 @@
 <title>Welcome — anirood2</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #0d1117;
-    color: #e6edf3;
-    min-height: 100vh;
-  }
-
-  header {
-    background: linear-gradient(160deg, #1a1f35, #0d1117);
-    padding: 70px 24px 50px;
-    text-align: center;
-    border-bottom: 1px solid #21262d;
-  }
-  .avatar {
-    width: 100px; height: 100px; border-radius: 50%;
-    background: linear-gradient(135deg, #c4622d, #7c3c1e);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2.8em; margin: 0 auto 22px;
-    border: 3px solid #30363d;
-    box-shadow: 0 0 40px rgba(196,98,45,0.3);
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; min-height: 100vh; }
+  header { background: linear-gradient(160deg, #1a1f35, #0d1117); padding: 70px 24px 50px; text-align: center; border-bottom: 1px solid #21262d; }
+  .avatar { width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, #c4622d, #7c3c1e); display: flex; align-items: center; justify-content: center; font-size: 2.8em; margin: 0 auto 22px; border: 3px solid #30363d; box-shadow: 0 0 40px rgba(196,98,45,0.3); }
   header h1 { font-size: 2em; font-weight: 800; color: #f0f6fc; margin-bottom: 10px; }
   header p { color: #8b949e; font-size: 1em; max-width: 380px; margin: 0 auto; line-height: 1.7; }
-
   .container { max-width: 600px; margin: 0 auto; padding: 50px 18px 80px; }
-
-  .prompt {
-    text-align: center;
-    font-size: 1.1em;
-    color: #8b949e;
-    margin-bottom: 32px;
-    font-style: italic;
-  }
-
-  .journey-card {
-    display: block;
-    text-decoration: none;
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 18px;
-    padding: 28px 24px;
-    margin-bottom: 16px;
-    color: inherit;
-    transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
-    -webkit-tap-highlight-color: transparent;
-    position: relative;
-    overflow: hidden;
-  }
-  .journey-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    opacity: 0;
-    transition: opacity 0.2s;
-    border-radius: 18px;
-  }
-  .journey-card.stories::before { background: radial-gradient(ellipse at top left, rgba(196,98,45,0.08), transparent 70%); }
-  .journey-card.projects::before { background: radial-gradient(ellipse at top left, rgba(88,166,255,0.08), transparent 70%); }
-  .journey-card.about::before { background: radial-gradient(ellipse at top left, rgba(63,185,80,0.08), transparent 70%); }
-
+  .prompt { text-align: center; font-size: 1.1em; color: #8b949e; margin-bottom: 32px; font-style: italic; }
+  .journey-card { display: block; text-decoration: none; background: #161b22; border: 1px solid #30363d; border-radius: 18px; padding: 28px 24px; margin-bottom: 16px; color: inherit; transition: border-color 0.2s, transform 0.15s; -webkit-tap-highlight-color: transparent; }
   .journey-card:active { transform: scale(0.97); }
-  .journey-card:hover::before { opacity: 1; }
-  .journey-card.stories:hover { border-color: #c4622d; box-shadow: 0 0 20px rgba(196,98,45,0.15); }
-  .journey-card.projects:hover { border-color: #58a6ff; box-shadow: 0 0 20px rgba(88,166,255,0.15); }
-  .journey-card.about:hover { border-color: #3fb950; box-shadow: 0 0 20px rgba(63,185,80,0.15); }
-
+  .journey-card.stories:active { border-color: #c4622d; }
+  .journey-card.projects:active { border-color: #58a6ff; }
   .card-inner { display: flex; align-items: center; gap: 18px; }
-  .card-emoji {
-    font-size: 2.4em;
-    width: 60px; height: 60px;
-    background: #21262d;
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
+  .card-emoji { font-size: 2.2em; width: 60px; height: 60px; background: #21262d; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .card-text { flex: 1; }
   .card-text h2 { font-size: 1.15em; color: #f0f6fc; margin-bottom: 6px; }
   .card-text p { font-size: 0.87em; color: #8b949e; line-height: 1.6; }
-  .card-arrow { font-size: 1.4em; color: #30363d; flex-shrink: 0; transition: color 0.2s; }
-  .journey-card.stories:hover .card-arrow { color: #c4622d; }
-  .journey-card.projects:hover .card-arrow { color: #58a6ff; }
-  .journey-card.about:hover .card-arrow { color: #3fb950; }
-
-  .divider {
-    text-align: center;
-    color: #30363d;
-    font-size: 0.8em;
-    margin: 10px 0;
-    letter-spacing: 2px;
-  }
-
-  footer {
-    text-align: center;
-    padding: 30px;
-    font-size: 0.8em;
-    color: #484f58;
-  }
+  .card-arrow { font-size: 1.6em; color: #8b949e; flex-shrink: 0; }
+  .divider { text-align: center; color: #30363d; font-size: 0.8em; margin: 10px 0; letter-spacing: 2px; }
+  footer { text-align: center; padding: 30px; font-size: 0.8em; color: #484f58; }
   footer a { color: #58a6ff; text-decoration: none; }
+
+/* Secret dashboard trigger - invisible dot in footer */
+.secret-trigger { display: inline-block; width: 10px; height: 10px; cursor: pointer; opacity: 0; }
+
+/* Password modal */
+.modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 100; align-items: center; justify-content: center; }
+.modal.open { display: flex; }
+.modal-box { background: #161b22; border: 1px solid #30363d; border-radius: 16px; padding: 30px 24px; width: 90%; max-width: 340px; text-align: center; }
+.modal-box h3 { color: #f0f6fc; margin-bottom: 8px; font-size: 1.1em; }
+.modal-box p { color: #8b949e; font-size: 0.85em; margin-bottom: 20px; }
+.pin-input { width: 100%; padding: 12px 16px; background: #0d1117; border: 1.5px solid #30363d; border-radius: 10px; color: #f0f6fc; font-size: 1.2em; text-align: center; letter-spacing: 4px; outline: none; margin-bottom: 14px; }
+.pin-input:focus { border-color: #c4622d; }
+.pin-btn { width: 100%; padding: 13px; background: linear-gradient(135deg, #7c3c1e, #c4622d); color: white; border: none; border-radius: 10px; font-size: 0.95em; font-weight: 600; cursor: pointer; margin-bottom: 10px; }
+.pin-cancel { color: #484f58; font-size: 0.8em; cursor: pointer; }
+.pin-error { color: #ef4444; font-size: 0.82em; margin-bottom: 10px; display: none; }
 </style>
+
 </head>
 <body>
 
@@ -115,10 +54,9 @@
 </header>
 
 <div class="container">
-
   <p class="prompt">Where would you like to go? ✨</p>
 
-  <a class="journey-card stories" href="https://anirood2.github.io/roopa-stories">
+  <a class="journey-card stories" href="https://anirood2.github.io/roopa-stories/">
     <div class="card-inner">
       <div class="card-emoji">📖</div>
       <div class="card-text">
@@ -131,35 +69,51 @@
 
   <div class="divider">· · ·</div>
 
-  <a class="journey-card projects" href="#" onclick="alert('Coming soon! Check back soon for new projects.')">
+  <div class="journey-card projects">
     <div class="card-inner">
       <div class="card-emoji">🛠</div>
       <div class="card-text">
         <h2>Projects</h2>
-        <p>Ideas, experiments and things I'm building. More coming soon.</p>
+        <p>Ideas, experiments and things I'm building. Coming soon.</p>
       </div>
       <span class="card-arrow">›</span>
     </div>
-  </a>
-
-  <div class="divider">· · ·</div>
-
-  <a class="journey-card about" href="#" onclick="alert('Hi! I\'m anirood2 — a parent, creator and storyteller. This is my little corner of the internet.')">
-    <div class="card-inner">
-      <div class="card-emoji">👋</div>
-      <div class="card-text">
-        <h2>About Me</h2>
-        <p>A little bit about who I am and what I'm creating here.</p>
-      </div>
-      <span class="card-arrow">›</span>
-    </div>
-  </a>
+  </div>
 
 </div>
 
 <footer>
   Made with ❤️ · <a href="https://github.com/anirood2">github.com/anirood2</a>
+  <!-- Secret dashboard access -->
+  <span class="secret-trigger" onclick="openModal()" title=""> </span>
 </footer>
+
+<!-- Secret PIN modal -->
+
+<div class="modal" id="pinModal">
+  <div class="modal-box">
+    <h3>🔒 Private Access</h3>
+    <p>Enter your PIN to access the dashboard</p>
+    <input class="pin-input" id="pinInput" type="password" maxlength="6" placeholder="••••••" onkeydown="if(event.key==='Enter') checkPin()">
+    <div class="pin-error" id="pinError">Incorrect PIN. Try again.</div>
+    <button class="pin-btn" onclick="checkPin()">Enter</button>
+    <div class="pin-cancel" onclick="closeModal()">Cancel</div>
+  </div>
+</div>
+
+<script>
+  // Change this PIN to whatever you want
+  const SECRET_PIN = '2025';
+  const DASHBOARD_URL = 'https://anirood2.github.io/roopa-stories/dashboard-private.html';
+
+  function openModal() { document.getElementById('pinModal').classList.add('open'); document.getElementById('pinInput').focus(); }
+  function closeModal() { document.getElementById('pinModal').classList.remove('open'); document.getElementById('pinInput').value = ''; document.getElementById('pinError').style.display = 'none'; }
+  function checkPin() {
+    const val = document.getElementById('pinInput').value;
+    if (val === SECRET_PIN) { window.location.href = DASHBOARD_URL; }
+    else { document.getElementById('pinError').style.display = 'block'; document.getElementById('pinInput').value = ''; document.getElementById('pinInput').focus(); }
+  }
+</script>
 
 </body>
 </html>

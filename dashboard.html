@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Dashboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0d1117; color: #e6edf3; min-height: 100vh; }
+  header { background: linear-gradient(135deg, #161b22, #1f2937); border-bottom: 1px solid #30363d; padding: 40px 24px 30px; text-align: center; }
+  header h1 { font-size: 1.7em; color: #f0f6fc; margin-bottom: 8px; }
+  header p { color: #8b949e; font-size: 0.9em; }
+  .container { max-width: 720px; margin: 0 auto; padding: 30px 18px 60px; }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 30px; }
+  .stat-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 18px; text-align: center; }
+  .stat-card .num { font-size: 2em; font-weight: 700; color: #f0f6fc; }
+  .stat-card .label { font-size: 0.75em; color: #8b949e; margin-top: 4px; }
+
+  .section-title { font-size: 0.75em; text-transform: uppercase; letter-spacing: 1.5px; color: #8b949e; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #21262d; }
+
+  .story-block { background: #161b22; border: 1px solid #30363d; border-radius: 14px; padding: 20px; margin-bottom: 16px; }
+  .story-block h3 { font-size: 1em; color: #f0f6fc; margin-bottom: 14px; }
+  .story-stats { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+  .story-stat { font-size: 0.82em; color: #8b949e; }
+  .story-stat span { color: #f0f6fc; font-weight: 600; }
+
+  .review-card { background: #0d1117; border: 1px solid #21262d; border-radius: 10px; padding: 14px; margin-bottom: 10px; }
+  .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .reviewer-name { font-size: 0.9em; font-weight: 600; color: #c4622d; }
+  .review-date { font-size: 0.75em; color: #484f58; }
+  .review-stars { color: #f59e0b; font-size: 0.9em; margin-bottom: 6px; }
+  .review-liked { font-size: 0.8em; margin-bottom: 6px; }
+  .review-feelings { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+  .feeling-tag { font-size: 0.72em; background: #1f2937; border: 1px solid #30363d; padding: 2px 8px; border-radius: 10px; color: #8b949e; }
+  .review-comment { font-size: 0.85em; color: #8b949e; line-height: 1.6; font-style: italic; }
+
+  .empty { text-align: center; padding: 60px 20px; color: #484f58; }
+  .empty .icon { font-size: 2.5em; margin-bottom: 12px; }
+  .empty p { font-size: 0.9em; }
+
+  .refresh-btn { display: block; width: 100%; padding: 14px; background: #21262d; border: 1px solid #30363d; border-radius: 10px; color: #8b949e; font-size: 0.9em; cursor: pointer; text-align: center; margin-bottom: 24px; }
+  .back-link { display: inline-block; color: #58a6ff; text-decoration: none; font-size: 0.85em; margin-bottom: 24px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📊 Feedback Dashboard</h1>
+  <p>All reader responses across your stories</p>
+</header>
+
+<div class="container">
+  <a class="back-link" href="index.html">← Back to stories</a>
+  <button class="refresh-btn" onclick="loadData()">🔄 Refresh feedback</button>
+
+  <div class="summary-grid">
+    <div class="stat-card"><div class="num" id="totalResponses">—</div><div class="label">Total Responses</div></div>
+    <div class="stat-card"><div class="num" id="avgStars">—</div><div class="label">Avg Star Rating</div></div>
+    <div class="stat-card"><div class="num" id="likedPct">—</div><div class="label">Liked It</div></div>
+  </div>
+
+  <div class="section-title">📖 Feedback by Story</div>
+  <div id="storiesList"><div class="empty"><div class="icon">📭</div><p>No feedback yet.<br>Share your stories and check back soon!</p></div></div>
+</div>
+
+<script>
+  const STORY_NAMES = {
+    'the-treehouse': '🌳 The Treehouse',
+    'the-art-show': '🎨 The Art Show',
+    'neels-treasure-box': "💛 Neel's Treasure Box",
+    'sahana-the-cook': '👩‍🍳 Sahana the Cook',
+    'stormy-day': '⛅ Stormy Day',
+    'best-friends': '🤝 Best Friends',
+    'roopa-loves-school': '🎒 Roopa Loves Going to School',
+    'the-waiting-game': '🌤 The Waiting Game',
+    'shy-priya': '🌸 Shy Priya',
+    'willow-bend-with-june': '📚 Willow Bend with June',
+  };
+
+  async function loadData() {
+    let tally = {};
+    try {
+      const res = await window.storage.get('feedback:all-stories', true);
+      if (res) tally = JSON.parse(res.value);
+    } catch(e) {}
+
+    const allEntries = Object.values(tally).flat();
+    if (allEntries.length === 0) {
+      document.getElementById('totalResponses').textContent = '0';
+      document.getElementById('avgStars').textContent = '—';
+      document.getElementById('likedPct').textContent = '—';
+      return;
+    }
+
+    const avgStars = (allEntries.reduce((s, e) => s + e.stars, 0) / allEntries.length).toFixed(1);
+    const likedPct = Math.round(allEntries.filter(e => e.liked === 'yes').length / allEntries.length * 100);
+    document.getElementById('totalResponses').textContent = allEntries.length;
+    document.getElementById('avgStars').textContent = avgStars + ' ★';
+    document.getElementById('likedPct').textContent = likedPct + '%';
+
+    let html = '';
+    for (const [storyId, entries] of Object.entries(tally)) {
+      if (!entries.length) continue;
+      const avg = (entries.reduce((s,e) => s+e.stars, 0) / entries.length).toFixed(1);
+      const liked = entries.filter(e => e.liked === 'yes').length;
+      const storyName = STORY_NAMES[storyId] || storyId;
+
+      html += `<div class="story-block">
+        <h3>${storyName}</h3>
+        <div class="story-stats">
+          <div class="story-stat">Responses: <span>${entries.length}</span></div>
+          <div class="story-stat">Avg Rating: <span>${avg} ★</span></div>
+          <div class="story-stat">Liked: <span>${liked}/${entries.length}</span></div>
+        </div>`;
+
+      for (const e of [...entries].reverse()) {
+        const stars = '★'.repeat(e.stars) + '☆'.repeat(5 - e.stars);
+        const likedText = e.liked === 'yes' ? '👍 Liked it' : '👎 Not really';
+        const feelings = e.feelings?.map(f => `<span class="feeling-tag">${f}</span>`).join('') || '';
+        const comment = e.comment ? `<div class="review-comment">"${e.comment}"</div>` : '';
+        html += `<div class="review-card">
+          <div class="review-header">
+            <span class="reviewer-name">${e.name}</span>
+            <span class="review-date">${e.date}</span>
+          </div>
+          <div class="review-stars">${stars}</div>
+          <div class="review-liked">${likedText}</div>
+          ${feelings ? `<div class="review-feelings">${feelings}</div>` : ''}
+          ${comment}
+        </div>`;
+      }
+      html += '</div>';
+    }
+
+    document.getElementById('storiesList').innerHTML = html || '<div class="empty"><div class="icon">📭</div><p>No feedback yet.</p></div>';
+  }
+
+  loadData();
+</script>
+</body>
+</html>

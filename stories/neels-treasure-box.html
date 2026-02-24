@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,32 +17,33 @@
   .story-text p { margin-bottom: 16px; }
   .moral { background: #fff8f2; border-left: 4px solid #c4622d; padding: 18px 20px; margin-top: 30px; border-radius: 0 12px 12px 0; font-style: italic; color: #666; line-height: 1.7; }
   .moral strong { color: #7c3c1e; font-style: normal; display: block; margin-bottom: 6px; }
-  
-  .feedback-section { margin-top: 40px; background: white; border-radius: 20px; padding: 28px 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
-  .feedback-section h2 { font-size: 1.2em; color: #7c3c1e; margin-bottom: 20px; font-family: -apple-system, sans-serif; }
-  .field-label { font-size: 0.85em; color: #888; font-family: -apple-system, sans-serif; margin-bottom: 8px; display: block; }
-  .name-input { width: 100%; padding: 12px 16px; border: 1.5px solid #f0e0d0; border-radius: 10px; font-size: 1em; font-family: -apple-system, sans-serif; color: #2d2d2d; background: #fdf6f0; margin-bottom: 20px; outline: none; }
-  .name-input:focus { border-color: #c4622d; }
-  .like-row { display: flex; gap: 12px; margin-bottom: 20px; }
-  .like-btn { flex: 1; padding: 14px; border: 2px solid #f0e0d0; border-radius: 12px; background: white; font-size: 1.3em; cursor: pointer; transition: all 0.2s; text-align: center; }
-  .like-btn.selected-yes { border-color: #22c55e; background: #f0fdf4; }
-  .like-btn.selected-no { border-color: #ef4444; background: #fef2f2; }
-  .stars { display: flex; gap: 8px; margin-bottom: 20px; }
-  .star { font-size: 2em; cursor: pointer; color: #ddd; transition: color 0.15s; -webkit-tap-highlight-color: transparent; }
-  .star.active { color: #f59e0b; }
-  .feelings { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-  .feeling-btn { padding: 8px 14px; border: 1.5px solid #f0e0d0; border-radius: 20px; background: white; font-size: 0.85em; font-family: -apple-system, sans-serif; cursor: pointer; transition: all 0.2s; -webkit-tap-highlight-color: transparent; }
-  .feeling-btn.selected { border-color: #c4622d; background: #fff0e8; color: #c4622d; font-weight: 600; }
-  .comment-box { width: 100%; padding: 12px 16px; border: 1.5px solid #f0e0d0; border-radius: 10px; font-size: 0.95em; font-family: -apple-system, sans-serif; color: #2d2d2d; background: #fdf6f0; min-height: 90px; resize: vertical; outline: none; margin-bottom: 20px; }
-  .comment-box:focus { border-color: #c4622d; }
-  .submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3c1e, #c4622d); color: white; border: none; border-radius: 12px; font-size: 1em; font-family: -apple-system, sans-serif; font-weight: 600; cursor: pointer; }
-  .submit-btn:active { opacity: 0.85; }
-  .thankyou { display: none; text-align: center; padding: 30px 20px; }
-  .thankyou .big { font-size: 3em; margin-bottom: 12px; }
-  .thankyou h3 { color: #7c3c1e; font-size: 1.3em; margin-bottom: 8px; }
-  .thankyou p { color: #888; font-size: 0.9em; font-family: -apple-system, sans-serif; }
+  footer { text-align: center; padding: 30px; font-size: 0.8em; color: #bbb; }
 
+.feedback-section { margin-top: 40px; background: white; border-radius: 20px; padding: 28px 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+.feedback-section h2 { font-size: 1.2em; color: #7c3c1e; margin-bottom: 20px; font-family: -apple-system, sans-serif; }
+.field-label { font-size: 0.85em; color: #888; font-family: -apple-system, sans-serif; margin-bottom: 8px; display: block; }
+.name-input { width: 100%; padding: 12px 16px; border: 1.5px solid #f0e0d0; border-radius: 10px; font-size: 1em; font-family: -apple-system, sans-serif; color: #2d2d2d; background: #fdf6f0; margin-bottom: 20px; outline: none; box-sizing: border-box; }
+.name-input:focus { border-color: #c4622d; }
+.like-row { display: flex; gap: 12px; margin-bottom: 20px; }
+.like-btn { flex: 1; padding: 14px; border: 2px solid #f0e0d0; border-radius: 12px; background: white; font-size: 1.4em; cursor: pointer; transition: all 0.2s; text-align: center; }
+.like-btn.selected-yes { border-color: #22c55e; background: #f0fdf4; }
+.like-btn.selected-no { border-color: #ef4444; background: #fef2f2; }
+.stars { display: flex; gap: 8px; margin-bottom: 20px; }
+.star { font-size: 2em; cursor: pointer; color: #ddd; transition: color 0.15s; -webkit-tap-highlight-color: transparent; user-select: none; }
+.star.active { color: #f59e0b; }
+.feelings { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.feeling-btn { padding: 8px 14px; border: 1.5px solid #f0e0d0; border-radius: 20px; background: white; font-size: 0.85em; font-family: -apple-system, sans-serif; cursor: pointer; transition: all 0.2s; -webkit-tap-highlight-color: transparent; }
+.feeling-btn.selected { border-color: #c4622d; background: #fff0e8; color: #c4622d; font-weight: 600; }
+.comment-box { width: 100%; padding: 12px 16px; border: 1.5px solid #f0e0d0; border-radius: 10px; font-size: 0.95em; font-family: -apple-system, sans-serif; color: #2d2d2d; background: #fdf6f0; min-height: 90px; resize: vertical; outline: none; margin-bottom: 20px; box-sizing: border-box; }
+.comment-box:focus { border-color: #c4622d; }
+.submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3c1e, #c4622d); color: white; border: none; border-radius: 12px; font-size: 1em; font-family: -apple-system, sans-serif; font-weight: 600; cursor: pointer; }
+.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.thankyou { display: none; text-align: center; padding: 30px 20px; }
+.thankyou .big { font-size: 3em; margin-bottom: 12px; }
+.thankyou h3 { color: #7c3c1e; font-size: 1.3em; margin-bottom: 8px; font-family: -apple-system, sans-serif; }
+.thankyou p { color: #888; font-size: 0.9em; font-family: -apple-system, sans-serif; }
 </style>
+
 </head>
 <body>
 <a class="back" href="../index.html">← Back to all stories</a>
@@ -50,58 +52,157 @@
   <span class="tag">Family &amp; Gratitude</span>
   <h1>💛 Neel's Treasure Box</h1>
   <div class="story-text">
-    <p>Neel lived in a cozy house at the end of Maple Lane with his parents and little sister, Tara. One sunny weekend, Neel's school announced a show-and-tell contest: "Bring in something special from home!" All the kids started bragging about what they'd bring — shiny bikes, remote-control cars, fancy video games.</p>
-    <p>Neel felt worried. His family didn't have expensive things. But at dinner, his dad smiled and said, "Neel, what do you think makes something special?" He remembered a lesson his grandma taught him: "True treasure isn't what you can buy. It's how you use what you have to make life bright for the people you care about."</p>
-    <p>So Neel spent the week doing something different. In the mornings, he helped Tara tie her shoes and made funny faces until she giggled. After school, he cleaned up his room so he could play board games with his mom and dad. On Wednesday, he wrote a thank-you note for their neighbor, Mrs. Raina, who always shared cookies.</p>
-    <p>The house felt full of laughter and warm hugs. Neel noticed that even without new things, his family was happier than ever.</p>
-    <p>On show-and-tell day, Neel stood up and held out a simple box decorated with drawings of hearts and stick figures. "This is my Treasure Box. Inside are cards, pictures, and a tiny diary where I wrote about our happiest moments together — like silly game nights, singing in the kitchen, and my little sister's birthday parade."</p>
-    <p>The teacher beamed. "What a wonderful idea, Neel! You shared your best gift — your love, your time, and who you are."</p>
-    <p>After school, Neel and Tara skipped home. They talked about new games and how they'd spend Saturday morning cooking pancakes together. Neel learned that being rich wasn't about money or things — it was about sharing himself, making precious memories, and enjoying every moment with loved ones.</p>
-    
-    <div class="moral"><strong>🌟 Moral of the Story</strong>You don't need fancy things to be rich. Sharing your time, kindness, and love with others makes you — and your family — happier than any treasure money can buy.</div>
+    <p>Neel had a wooden box under his bed. It wasn't fancy — it had a little latch and a scratch on the lid from when he'd dropped it once. But to Neel, it was the most important thing he owned.</p>
+    <p>Inside were things that looked like nothing much: a smooth grey pebble, a folded piece of paper, a dried flower, a button, a tiny seashell, and a photograph.</p>
+    <p>His cousin Riya visited one afternoon and found the box while they were playing. "What's all this old stuff?" she asked, picking up the pebble.</p>
+    <p>"That's from the river where my dada taught me to skip stones," Neel said. "It took me forty tries to get it right. He never gave up on me."</p>
+    <p>Riya picked up the folded paper. "Can I?" Neel nodded. She unfolded it — it was a crayon drawing of a house, very wobbly. In the corner, in careful child's handwriting: <em>My home. I love it.</em></p>
+    <p>"My mom kept that for seven years," Neel said. "She found it when we were moving and gave it back to me."</p>
+    <p>Riya looked at the dried flower. "And this?"</p>
+    <p>"From the first garden I ever planted. With my nani. She said everything you grow with love lasts forever, even after it dries up."</p>
+    <p>Riya set the flower down carefully. She picked up the photograph. It was Neel and an older man, both laughing, mid-jump on a beach somewhere.</p>
+    <p>"My dadaji," Neel said softly. "He's not here anymore. But I keep this so I can remember what it felt like to laugh like that with him."</p>
+    <p>Riya was quiet for a moment. Then she said, "I want a box like this."</p>
+    <p>Neel smiled. "You already have things to put in it. You just have to start noticing them."</p>
+    <div class="moral"><strong>🌟 Moral of the Story</strong>The greatest treasures aren't bought — they're made from moments shared with people you love. Pay attention, because those moments are happening right now.</div>
   </div>
-  
+
   <div class="feedback-section" id="feedbackForm">
     <h2>💬 Share Your Thoughts</h2>
     <label class="field-label">Your name</label>
     <input class="name-input" id="readerName" type="text" placeholder="Enter your name...">
     <label class="field-label">Did you like this story?</label>
     <div class="like-row">
-      <button class="like-btn" id="likeYes" onclick="setLike('yes')">👍 Yes!</button>
-      <button class="like-btn" id="likeNo" onclick="setLike('no')">👎 Not really</button>
+      <button class="like-btn" id="likeYes">👍 Yes!</button>
+      <button class="like-btn" id="likeNo">👎 Not really</button>
     </div>
     <label class="field-label">How would you rate it?</label>
     <div class="stars" id="starRow">
-      <span class="star" onclick="setStar(1)">★</span>
-      <span class="star" onclick="setStar(2)">★</span>
-      <span class="star" onclick="setStar(3)">★</span>
-      <span class="star" onclick="setStar(4)">★</span>
-      <span class="star" onclick="setStar(5)">★</span>
+      <span class="star" data-star="1">★</span>
+      <span class="star" data-star="2">★</span>
+      <span class="star" data-star="3">★</span>
+      <span class="star" data-star="4">★</span>
+      <span class="star" data-star="5">★</span>
     </div>
     <label class="field-label">How did this story make you feel?</label>
-    <div class="feelings">
-      <button class="feeling-btn" onclick="toggleFeeling(this)">😊 Happy</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">🌟 Inspired</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">🥰 Warm &amp; Fuzzy</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">🤔 Thoughtful</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">😢 Emotional</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">😄 Excited</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">😌 Calm</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">💪 Motivated</button>
+    <div class="feelings" id="feelingsRow">
+      <button class="feeling-btn">😊 Happy</button>
+      <button class="feeling-btn">🌟 Inspired</button>
+      <button class="feeling-btn">🥰 Warm &amp; Fuzzy</button>
+      <button class="feeling-btn">🤔 Thoughtful</button>
+      <button class="feeling-btn">😢 Emotional</button>
+      <button class="feeling-btn">😄 Excited</button>
+      <button class="feeling-btn">😌 Calm</button>
+      <button class="feeling-btn">💪 Motivated</button>
     </div>
     <label class="field-label">What did you like about it? (optional)</label>
     <textarea class="comment-box" id="comment" placeholder="Tell us what you loved, what you learned, or how it made you feel..."></textarea>
-    <button class="submit-btn" onclick="submitFeedback()">Submit My Feedback ✓</button>
+    <button class="submit-btn" id="submitBtn">Submit My Feedback ✓</button>
   </div>
+
   <div class="thankyou" id="thankYou">
     <div class="big">🎉</div>
     <h3>Thank you for your feedback!</h3>
     <p>Your thoughts have been saved and the author will love reading them.</p>
   </div>
-
 </div>
-<footer style="text-align:center;padding:30px;font-size:0.8em;color:#bbb;">Made with love ❤️</footer>
 
-<script src="../feedback-fix.js"></script>
+<footer>Made with love ❤️</footer>
+
+<script>
+  const STORY_ID = 'neels-treasure-box';
+  const JSONBIN_KEY = '$2a$10$ffNLH8Yhlt9tyvNGuE8M4un89TWMYkhSj3PVAOqcshrV1.6RoQcoC';
+  const BIN_ID = '699dae4343b1c97be999b0b0';
+  const API = 'https://api.jsonbin.io/v3';
+
+  let selectedLike = null;
+  let selectedStar = 0;
+  let selectedFeelings = [];
+
+  // Like buttons
+  document.getElementById('likeYes').addEventListener('click', function() {
+    selectedLike = 'yes';
+    document.getElementById('likeYes').className = 'like-btn selected-yes';
+    document.getElementById('likeNo').className = 'like-btn';
+  });
+  document.getElementById('likeNo').addEventListener('click', function() {
+    selectedLike = 'no';
+    document.getElementById('likeNo').className = 'like-btn selected-no';
+    document.getElementById('likeYes').className = 'like-btn';
+  });
+
+  // Star buttons
+  document.querySelectorAll('.star').forEach(function(star) {
+    star.addEventListener('click', function() {
+      selectedStar = parseInt(this.getAttribute('data-star'));
+      document.querySelectorAll('.star').forEach(function(s) {
+        s.classList.toggle('active', parseInt(s.getAttribute('data-star')) <= selectedStar);
+      });
+    });
+  });
+
+  // Feeling buttons
+  document.querySelectorAll('.feeling-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      this.classList.toggle('selected');
+      const feeling = this.textContent.trim();
+      if (this.classList.contains('selected')) {
+        selectedFeelings.push(feeling);
+      } else {
+        selectedFeelings = selectedFeelings.filter(function(f) { return f !== feeling; });
+      }
+    });
+  });
+
+  // Submit
+  document.getElementById('submitBtn').addEventListener('click', async function() {
+    const name = document.getElementById('readerName').value.trim();
+    if (!name) { alert('Please enter your name!'); return; }
+    if (!selectedLike) { alert('Please tell us if you liked the story!'); return; }
+    if (!selectedStar) { alert('Please give a star rating!'); return; }
+
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Saving...';
+    btn.disabled = true;
+
+    const entry = {
+      id: Date.now(),
+      story: STORY_ID,
+      name: name,
+      liked: selectedLike,
+      stars: selectedStar,
+      feelings: selectedFeelings,
+      comment: document.getElementById('comment').value.trim(),
+      date: new Date().toLocaleDateString()
+    };
+
+    try {
+      const readRes = await fetch(API + '/b/' + BIN_ID + '/latest', {
+        headers: { 'X-Master-Key': JSONBIN_KEY }
+      });
+      const readData = await readRes.json();
+      const record = readData.record || { stories: {} };
+      if (!record.stories) record.stories = {};
+      if (!record.stories[STORY_ID]) record.stories[STORY_ID] = [];
+      record.stories[STORY_ID].push(entry);
+
+      await fetch(API + '/b/' + BIN_ID, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'X-Master-Key': JSONBIN_KEY },
+        body: JSON.stringify(record)
+      });
+
+      document.getElementById('feedbackForm').style.display = 'none';
+      document.getElementById('thankYou').style.display = 'block';
+      window.scrollTo(0, document.getElementById('thankYou').offsetTop - 20);
+    } catch(e) {
+      btn.textContent = 'Submit My Feedback ✓';
+      btn.disabled = false;
+      alert('Sorry, could not save. Please try again.');
+      console.error(e);
+    }
+  });
+</script>
+
 </body>
 </html>

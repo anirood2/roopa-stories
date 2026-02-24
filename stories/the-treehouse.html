@@ -103,47 +103,7 @@
 
 </div>
 <footer style="text-align:center;padding:30px;font-size:0.8em;color:#bbb;">Made with love ❤️</footer>
-<script>
-  const STORY_ID = 'the-treehouse';
-  
-  let selectedLike = null, selectedStar = 0, selectedFeelings = [];
-  function setLike(val) {
-    selectedLike = val;
-    document.getElementById('likeYes').className = 'like-btn' + (val==='yes' ? ' selected-yes' : '');
-    document.getElementById('likeNo').className = 'like-btn' + (val==='no' ? ' selected-no' : '');
-  }
-  function setStar(n) {
-    selectedStar = n;
-    document.querySelectorAll('.star').forEach((s,i) => s.classList.toggle('active', i < n));
-  }
-  function toggleFeeling(btn) {
-    btn.classList.toggle('selected');
-    const f = btn.textContent.trim();
-    if (btn.classList.contains('selected')) selectedFeelings.push(f);
-    else selectedFeelings = selectedFeelings.filter(x => x !== f);
-  }
-  async function submitFeedback() {
-    const name = document.getElementById('readerName').value.trim();
-    if (!name) { alert('Please enter your name!'); return; }
-    if (!selectedLike) { alert('Please tell us if you liked the story!'); return; }
-    if (!selectedStar) { alert('Please give a star rating!'); return; }
-    const entry = { id: Date.now(), story: STORY_ID, name, liked: selectedLike, stars: selectedStar, feelings: selectedFeelings, comment: document.getElementById('comment').value.trim(), date: new Date().toLocaleDateString() };
-    try {
-      let existing = [];
-      try { const r = await window.storage.get('feedback:' + STORY_ID, true); if (r) existing = JSON.parse(r.value); } catch(e) {}
-      existing.push(entry);
-      await window.storage.set('feedback:' + STORY_ID, JSON.stringify(existing), true);
-      let tally = {};
-      try { const r = await window.storage.get('feedback:all-stories', true); if (r) tally = JSON.parse(r.value); } catch(e) {}
-      if (!tally[STORY_ID]) tally[STORY_ID] = [];
-      tally[STORY_ID].push(entry);
-      await window.storage.set('feedback:all-stories', JSON.stringify(tally), true);
-    } catch(e) {}
-    document.getElementById('feedbackForm').style.display = 'none';
-    document.getElementById('thankYou').style.display = 'block';
-    window.scrollTo(0, document.getElementById('thankYou').offsetTop - 20);
-  }
 
-</script>
+<script src="../feedback-fix.js"></script>
 </body>
 </html>

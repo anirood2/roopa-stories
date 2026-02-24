@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,32 +17,33 @@
   .story-text p { margin-bottom: 16px; }
   .moral { background: #fff8f2; border-left: 4px solid #c4622d; padding: 18px 20px; margin-top: 30px; border-radius: 0 12px 12px 0; font-style: italic; color: #666; line-height: 1.7; }
   .moral strong { color: #7c3c1e; font-style: normal; display: block; margin-bottom: 6px; }
-  
-  .feedback-section { margin-top: 40px; background: white; border-radius: 20px; padding: 28px 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
-  .feedback-section h2 { font-size: 1.2em; color: #7c3c1e; margin-bottom: 20px; font-family: -apple-system, sans-serif; }
-  .field-label { font-size: 0.85em; color: #888; font-family: -apple-system, sans-serif; margin-bottom: 8px; display: block; }
-  .name-input { width: 100%; padding: 12px 16px; border: 1.5px solid #f0e0d0; border-radius: 10px; font-size: 1em; font-family: -apple-system, sans-serif; color: #2d2d2d; background: #fdf6f0; margin-bottom: 20px; outline: none; }
-  .name-input:focus { border-color: #c4622d; }
-  .like-row { display: flex; gap: 12px; margin-bottom: 20px; }
-  .like-btn { flex: 1; padding: 14px; border: 2px solid #f0e0d0; border-radius: 12px; background: white; font-size: 1.3em; cursor: pointer; transition: all 0.2s; text-align: center; }
-  .like-btn.selected-yes { border-color: #22c55e; background: #f0fdf4; }
-  .like-btn.selected-no { border-color: #ef4444; background: #fef2f2; }
-  .stars { display: flex; gap: 8px; margin-bottom: 20px; }
-  .star { font-size: 2em; cursor: pointer; color: #ddd; transition: color 0.15s; -webkit-tap-highlight-color: transparent; }
-  .star.active { color: #f59e0b; }
-  .feelings { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-  .feeling-btn { padding: 8px 14px; border: 1.5px solid #f0e0d0; border-radius: 20px; background: white; font-size: 0.85em; font-family: -apple-system, sans-serif; cursor: pointer; transition: all 0.2s; -webkit-tap-highlight-color: transparent; }
-  .feeling-btn.selected { border-color: #c4622d; background: #fff0e8; color: #c4622d; font-weight: 600; }
-  .comment-box { width: 100%; padding: 12px 16px; border: 1.5px solid #f0e0d0; border-radius: 10px; font-size: 0.95em; font-family: -apple-system, sans-serif; color: #2d2d2d; background: #fdf6f0; min-height: 90px; resize: vertical; outline: none; margin-bottom: 20px; }
-  .comment-box:focus { border-color: #c4622d; }
-  .submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3c1e, #c4622d); color: white; border: none; border-radius: 12px; font-size: 1em; font-family: -apple-system, sans-serif; font-weight: 600; cursor: pointer; }
-  .submit-btn:active { opacity: 0.85; }
-  .thankyou { display: none; text-align: center; padding: 30px 20px; }
-  .thankyou .big { font-size: 3em; margin-bottom: 12px; }
-  .thankyou h3 { color: #7c3c1e; font-size: 1.3em; margin-bottom: 8px; }
-  .thankyou p { color: #888; font-size: 0.9em; font-family: -apple-system, sans-serif; }
+  footer { text-align: center; padding: 30px; font-size: 0.8em; color: #bbb; }
 
+.feedback-section { margin-top: 40px; background: white; border-radius: 20px; padding: 28px 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+.feedback-section h2 { font-size: 1.2em; color: #7c3c1e; margin-bottom: 20px; font-family: -apple-system, sans-serif; }
+.field-label { font-size: 0.85em; color: #888; font-family: -apple-system, sans-serif; margin-bottom: 8px; display: block; }
+.name-input { width: 100%; padding: 12px 16px; border: 1.5px solid #f0e0d0; border-radius: 10px; font-size: 1em; font-family: -apple-system, sans-serif; color: #2d2d2d; background: #fdf6f0; margin-bottom: 20px; outline: none; box-sizing: border-box; }
+.name-input:focus { border-color: #c4622d; }
+.like-row { display: flex; gap: 12px; margin-bottom: 20px; }
+.like-btn { flex: 1; padding: 14px; border: 2px solid #f0e0d0; border-radius: 12px; background: white; font-size: 1.4em; cursor: pointer; transition: all 0.2s; text-align: center; }
+.like-btn.selected-yes { border-color: #22c55e; background: #f0fdf4; }
+.like-btn.selected-no { border-color: #ef4444; background: #fef2f2; }
+.stars { display: flex; gap: 8px; margin-bottom: 20px; }
+.star { font-size: 2em; cursor: pointer; color: #ddd; transition: color 0.15s; -webkit-tap-highlight-color: transparent; user-select: none; }
+.star.active { color: #f59e0b; }
+.feelings { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.feeling-btn { padding: 8px 14px; border: 1.5px solid #f0e0d0; border-radius: 20px; background: white; font-size: 0.85em; font-family: -apple-system, sans-serif; cursor: pointer; transition: all 0.2s; -webkit-tap-highlight-color: transparent; }
+.feeling-btn.selected { border-color: #c4622d; background: #fff0e8; color: #c4622d; font-weight: 600; }
+.comment-box { width: 100%; padding: 12px 16px; border: 1.5px solid #f0e0d0; border-radius: 10px; font-size: 0.95em; font-family: -apple-system, sans-serif; color: #2d2d2d; background: #fdf6f0; min-height: 90px; resize: vertical; outline: none; margin-bottom: 20px; box-sizing: border-box; }
+.comment-box:focus { border-color: #c4622d; }
+.submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3c1e, #c4622d); color: white; border: none; border-radius: 12px; font-size: 1em; font-family: -apple-system, sans-serif; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.thankyou { display: none; text-align: center; padding: 30px 20px; }
+.thankyou .big { font-size: 3em; margin-bottom: 12px; }
+.thankyou h3 { color: #7c3c1e; font-size: 1.3em; margin-bottom: 8px; font-family: -apple-system, sans-serif; }
+.thankyou p { color: #888; font-size: 0.9em; font-family: -apple-system, sans-serif; }
 </style>
+
 </head>
 <body>
 <a class="back" href="../index.html">← Back to all stories</a>
@@ -50,18 +52,20 @@
   <span class="tag">Resilience &amp; Self-Belief</span>
   <h1>🎨 The Art Show</h1>
   <div class="story-text">
-    <p>Emma, a seven year old girl, loved to paint. Her favorite thing in the world was to mix bright colors and create pictures of food, animals, flowers, and magical places. She dreamed of one day having her art in a big show at the library.</p>
-    <p>One day, Mrs. Bee, her art teacher, announced, "The library is having a big art show! If you want your painting to be in the show, bring it to me by Friday. I'll send the best ones to the library, and they'll choose which ones to display!"</p>
-    <p>Emma was so excited. She worked for days on her painting — a beautiful picture of a fox in a field of wildflowers. She used her brightest oranges, her prettiest purples, and even added a tiny blue butterfly. When she finished, she felt proud. "This is my best painting ever!"</p>
-    <p>A week later, Mrs. Bee posted the list of students whose paintings were chosen. Emma ran to the list, her heart thumping with excitement. She scanned the names once, then twice. Her name wasn't there. Emma felt sad. She wanted to cry. "How could this be? I worked so hard!"</p>
-    <p>When she got home, she told her mom what happened. "I'm sorry, sweetie," her mom said, giving her a hug. "It hurts to be left out. But making it to the final group is a big deal! The library just couldn't choose everyone."</p>
-    <p>That night, Emma looked at her painting. She still loved it. The fox looked happy, and the flowers were bright and cheerful. "Maybe my painting didn't get picked this time," Emma thought, "but that doesn't mean it isn't good. And it doesn't mean I should stop painting."</p>
-    <p>The next day, Emma brought her painting to show her friends. "Wow, Emma! That's amazing!" said her friend Lily. "Will you teach me how to paint a fox?"</p>
-    <p>Emma smiled. She realized that even though her painting wasn't in the library show, it could still make people happy. She decided she would try again next year — because she was still an artist, and she had many more paintings to share with the world.</p>
-    
-    <div class="moral"><strong>🌟 Moral of the Story</strong>Sometimes we don't get picked, even when we try our best. But that doesn't mean we aren't good at what we do. If we keep trying and believing in ourselves, we can keep growing and sharing our gifts with others.</div>
+    <p>Emma loved painting more than almost anything. Every afternoon, she would set up her easel by the window and lose herself in swirls of color. When she heard the town library was hosting an art show for young artists, her heart leapt with excitement.</p>
+    <p>She spent two whole weeks on her painting — a bright, swirling landscape of the meadow behind her house, full of sunflowers and butterflies and a little red barn in the distance. She was so proud of it.</p>
+    <p>On the day the accepted artists were announced, Emma rushed to the library bulletin board. She scanned the list once, then twice. Her name wasn't there.</p>
+    <p>Her stomach dropped. She walked home slowly, the world feeling a little greyer. That evening, she sat at the kitchen table, not touching her dinner. Her dad noticed. "What happened, Em?"</p>
+    <p>"My painting wasn't good enough," she said quietly. "They didn't pick me."</p>
+    <p>Her dad was quiet for a moment. Then he said, "Can I see it?" Emma brought the painting out. He looked at it for a long time. "Emma, this is beautiful. Truly."</p>
+    <p>"But they didn't choose it," she said.</p>
+    <p>"That doesn't mean it isn't beautiful," he said gently. "Sometimes things don't get chosen, and it doesn't mean they aren't wonderful. It just means someone else made a different choice that day."</p>
+    <p>Emma thought about that. The next day, she hung her painting in her bedroom, right where she could see it every morning. And she started a new one.</p>
+    <p>At the end of the year, the library hosted an open submission exhibit — no jury, just art. Emma brought three paintings. One of them was the meadow.</p>
+    <p>A little girl stopped in front of it and said, "That's my favourite one in the whole room." Emma smiled. It still was hers too.</p>
+    <div class="moral"><strong>🌟 Moral of the Story</strong>Not being chosen doesn't mean you aren't talented. Keep making things you love. The right audience always finds you eventually.</div>
   </div>
-  
+
   <div class="feedback-section" id="feedbackForm">
     <h2>💬 Share Your Thoughts</h2>
     <label class="field-label">Your name</label>
@@ -72,7 +76,7 @@
       <button class="like-btn" id="likeNo" onclick="setLike('no')">👎 Not really</button>
     </div>
     <label class="field-label">How would you rate it?</label>
-    <div class="stars" id="starRow">
+    <div class="stars">
       <span class="star" onclick="setStar(1)">★</span>
       <span class="star" onclick="setStar(2)">★</span>
       <span class="star" onclick="setStar(3)">★</span>
@@ -99,10 +103,9 @@
     <h3>Thank you for your feedback!</h3>
     <p>Your thoughts have been saved and the author will love reading them.</p>
   </div>
-
 </div>
-<footer style="text-align:center;padding:30px;font-size:0.8em;color:#bbb;">Made with love ❤️</footer>
-
+<footer>Made with love ❤️</footer>
+<script>const STORY_ID = 'the-art-show';</script>
 <script src="../feedback-fix.js"></script>
 </body>
 </html>

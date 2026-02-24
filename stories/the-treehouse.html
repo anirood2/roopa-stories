@@ -36,7 +36,7 @@
 .feeling-btn.selected { border-color: #c4622d; background: #fff0e8; color: #c4622d; font-weight: 600; }
 .comment-box { width: 100%; padding: 12px 16px; border: 1.5px solid #f0e0d0; border-radius: 10px; font-size: 0.95em; font-family: -apple-system, sans-serif; color: #2d2d2d; background: #fdf6f0; min-height: 90px; resize: vertical; outline: none; margin-bottom: 20px; box-sizing: border-box; }
 .comment-box:focus { border-color: #c4622d; }
-.submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3c1e, #c4622d); color: white; border: none; border-radius: 12px; font-size: 1em; font-family: -apple-system, sans-serif; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+.submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3c1e, #c4622d); color: white; border: none; border-radius: 12px; font-size: 1em; font-family: -apple-system, sans-serif; font-weight: 600; cursor: pointer; }
 .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 .thankyou { display: none; text-align: center; padding: 30px 20px; }
 .thankyou .big { font-size: 3em; margin-bottom: 12px; }
@@ -72,40 +72,136 @@
     <input class="name-input" id="readerName" type="text" placeholder="Enter your name...">
     <label class="field-label">Did you like this story?</label>
     <div class="like-row">
-      <button class="like-btn" id="likeYes" onclick="setLike('yes')">👍 Yes!</button>
-      <button class="like-btn" id="likeNo" onclick="setLike('no')">👎 Not really</button>
+      <button class="like-btn" id="likeYes">👍 Yes!</button>
+      <button class="like-btn" id="likeNo">👎 Not really</button>
     </div>
     <label class="field-label">How would you rate it?</label>
-    <div class="stars">
-      <span class="star" onclick="setStar(1)">★</span>
-      <span class="star" onclick="setStar(2)">★</span>
-      <span class="star" onclick="setStar(3)">★</span>
-      <span class="star" onclick="setStar(4)">★</span>
-      <span class="star" onclick="setStar(5)">★</span>
+    <div class="stars" id="starRow">
+      <span class="star" data-star="1">★</span>
+      <span class="star" data-star="2">★</span>
+      <span class="star" data-star="3">★</span>
+      <span class="star" data-star="4">★</span>
+      <span class="star" data-star="5">★</span>
     </div>
     <label class="field-label">How did this story make you feel?</label>
-    <div class="feelings">
-      <button class="feeling-btn" onclick="toggleFeeling(this)">😊 Happy</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">🌟 Inspired</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">🥰 Warm &amp; Fuzzy</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">🤔 Thoughtful</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">😢 Emotional</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">😄 Excited</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">😌 Calm</button>
-      <button class="feeling-btn" onclick="toggleFeeling(this)">💪 Motivated</button>
+    <div class="feelings" id="feelingsRow">
+      <button class="feeling-btn">😊 Happy</button>
+      <button class="feeling-btn">🌟 Inspired</button>
+      <button class="feeling-btn">🥰 Warm &amp; Fuzzy</button>
+      <button class="feeling-btn">🤔 Thoughtful</button>
+      <button class="feeling-btn">😢 Emotional</button>
+      <button class="feeling-btn">😄 Excited</button>
+      <button class="feeling-btn">😌 Calm</button>
+      <button class="feeling-btn">💪 Motivated</button>
     </div>
     <label class="field-label">What did you like about it? (optional)</label>
     <textarea class="comment-box" id="comment" placeholder="Tell us what you loved, what you learned, or how it made you feel..."></textarea>
-    <button class="submit-btn" onclick="submitFeedback()">Submit My Feedback ✓</button>
+    <button class="submit-btn" id="submitBtn">Submit My Feedback ✓</button>
   </div>
+
   <div class="thankyou" id="thankYou">
     <div class="big">🎉</div>
     <h3>Thank you for your feedback!</h3>
     <p>Your thoughts have been saved and the author will love reading them.</p>
   </div>
 </div>
+
 <footer>Made with love ❤️</footer>
-<script>const STORY_ID = 'the-treehouse';</script>
-<script src="../feedback-fix.js"></script>
+
+<script>
+  const STORY_ID = 'the-treehouse';
+  const JSONBIN_KEY = '$2a$10$ffNLH8Yhlt9tyvNGuE8M4un89TWMYkhSj3PVAOqcshrV1.6RoQcoC';
+  const BIN_ID = '699dae4343b1c97be999b0b0';
+  const API = 'https://api.jsonbin.io/v3';
+
+  let selectedLike = null;
+  let selectedStar = 0;
+  let selectedFeelings = [];
+
+  // Like buttons
+  document.getElementById('likeYes').addEventListener('click', function() {
+    selectedLike = 'yes';
+    document.getElementById('likeYes').className = 'like-btn selected-yes';
+    document.getElementById('likeNo').className = 'like-btn';
+  });
+  document.getElementById('likeNo').addEventListener('click', function() {
+    selectedLike = 'no';
+    document.getElementById('likeNo').className = 'like-btn selected-no';
+    document.getElementById('likeYes').className = 'like-btn';
+  });
+
+  // Star buttons
+  document.querySelectorAll('.star').forEach(function(star) {
+    star.addEventListener('click', function() {
+      selectedStar = parseInt(this.getAttribute('data-star'));
+      document.querySelectorAll('.star').forEach(function(s) {
+        s.classList.toggle('active', parseInt(s.getAttribute('data-star')) <= selectedStar);
+      });
+    });
+  });
+
+  // Feeling buttons
+  document.querySelectorAll('.feeling-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      this.classList.toggle('selected');
+      const feeling = this.textContent.trim();
+      if (this.classList.contains('selected')) {
+        selectedFeelings.push(feeling);
+      } else {
+        selectedFeelings = selectedFeelings.filter(function(f) { return f !== feeling; });
+      }
+    });
+  });
+
+  // Submit
+  document.getElementById('submitBtn').addEventListener('click', async function() {
+    const name = document.getElementById('readerName').value.trim();
+    if (!name) { alert('Please enter your name!'); return; }
+    if (!selectedLike) { alert('Please tell us if you liked the story!'); return; }
+    if (!selectedStar) { alert('Please give a star rating!'); return; }
+
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Saving...';
+    btn.disabled = true;
+
+    const entry = {
+      id: Date.now(),
+      story: STORY_ID,
+      name: name,
+      liked: selectedLike,
+      stars: selectedStar,
+      feelings: selectedFeelings,
+      comment: document.getElementById('comment').value.trim(),
+      date: new Date().toLocaleDateString()
+    };
+
+    try {
+      const readRes = await fetch(API + '/b/' + BIN_ID + '/latest', {
+        headers: { 'X-Master-Key': JSONBIN_KEY }
+      });
+      const readData = await readRes.json();
+      const record = readData.record || { stories: {} };
+      if (!record.stories) record.stories = {};
+      if (!record.stories[STORY_ID]) record.stories[STORY_ID] = [];
+      record.stories[STORY_ID].push(entry);
+
+      await fetch(API + '/b/' + BIN_ID, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'X-Master-Key': JSONBIN_KEY },
+        body: JSON.stringify(record)
+      });
+
+      document.getElementById('feedbackForm').style.display = 'none';
+      document.getElementById('thankYou').style.display = 'block';
+      window.scrollTo(0, document.getElementById('thankYou').offsetTop - 20);
+    } catch(e) {
+      btn.textContent = 'Submit My Feedback ✓';
+      btn.disabled = false;
+      alert('Sorry, could not save. Please try again.');
+      console.error(e);
+    }
+  });
+</script>
+
 </body>
 </html>

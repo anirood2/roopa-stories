@@ -1,0 +1,59 @@
+name: Verify Story Links and Images
+
+on:
+  push:
+    branches: [ "stories" ] # Runs only on your stories branch
+  pull_request:
+    branches: [ "stories" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Check if Story Files Exist
+      run: |
+        files=(
+          "stories/neels-treasure-box.html"
+          "stories/shy-priya.html"
+          "stories/sahana-the-cook.html"
+          "stories/the-treehouse.html"
+          "stories/willow-bend-with-june.html"
+          "stories/the-waiting-game.html"
+          "stories/stormy-day.html"
+          "stories/best-friends.html"
+          "stories/the-art-show.html"
+          "stories/roopa-loves-school.html"
+        )
+        for file in "${files[@]}"; do
+          if [ ! -f "$file" ]; then
+            echo "❌ Error: $file is missing!"
+            exit 1
+          fi
+        done
+        echo "✅ All story files are present."
+
+    - name: Check if Images Exist
+      run: |
+        images=(
+          "images/neels-treasure-box.png"
+          "images/shy-priya.png"
+          "images/sahana-the-cook.png"
+          "images/the-treehouse.png"
+          "images/willow-bend-with-june.png"
+          "images/the-waiting-game.png"
+          "images/stormy-day.png"
+          "images/best-friends.png"
+          "images/the-art-show.png"
+          "images/roopa-loves-school.png"
+        )
+        for img in "${images[@]}"; do
+          if [ ! -f "$img" ]; then
+            echo "❌ Error: Image $img is missing!"
+            exit 1
+          fi
+        done
+        echo "✅ All story images are present."

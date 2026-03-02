@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sharing Makes Us Stronger</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, serif; background: #fdf6f0; color: #2d2d2d; }
+  .back { display: flex; align-items: center; gap: 8px; padding: 16px 20px; background: white; border-bottom: 1px solid #f0e0d0; text-decoration: none; color: #b5451b; font-family: -apple-system, sans-serif; font-size: 0.9em; }
+  .story-img { width: 100%; max-height: 340px; object-fit: cover; display: block; }
+  .container { max-width: 680px; margin: 0 auto; padding: 30px 20px 60px; }
+  .tag { display: inline-block; background: #fff0e8; color: #c4622d; font-size: 0.75em; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; font-family: -apple-system, sans-serif; }
+  h1 { font-size: 1.8em; color: #7c3c1e; margin-bottom: 20px; line-height: 1.3; }
+  .story-text { font-size: 1.05em; line-height: 1.9; color: #444; }
+  .story-text p { margin-bottom: 18px; }
+  .moral { background: #fff8f2; border-left: 4px solid #c4622d; padding: 18px 20px; margin-top: 30px; border-radius: 0 12px 12px 0; font-style: italic; color: #666; line-height: 1.7; }
+  .moral strong { color: #7c3c1e; font-style: normal; display: block; margin-bottom: 6px; }
+
+  /* Feedback Section */
+  .feedback-section { margin-top: 50px; background: white; border-radius: 24px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .feedback-section h2 { font-size: 1.3em; color: #7c3c1e; margin-bottom: 20px; font-family: -apple-system, sans-serif; text-align: center; }
+  .field-label { font-size: 0.85em; color: #888; font-family: -apple-system, sans-serif; margin-bottom: 8px; display: block; font-weight: 600; }
+  .name-input { width: 100%; padding: 14px; border: 1.5px solid #f0e0d0; border-radius: 12px; font-size: 1em; background: #fdf6f0; margin-bottom: 25px; outline: none; }
+  .like-row { display: flex; gap: 15px; margin-bottom: 25px; }
+  .like-btn { flex: 1; padding: 15px; border: 2px solid #f0e0d0; border-radius: 15px; background: white; font-size: 1.5em; cursor: pointer; transition: 0.2s; }
+  .like-btn.selected-yes { border-color: #22c55e; background: #f0fdf4; }
+  .like-btn.selected-no { border-color: #ef4444; background: #fef2f2; }
+  .stars { display: flex; gap: 10px; margin-bottom: 25px; justify-content: center; }
+  .star { font-size: 2.5em; cursor: pointer; color: #eee; transition: 0.2s; }
+  .star.active { color: #f59e0b; }
+  .feelings { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
+  .feeling-btn { padding: 10px 16px; border: 1.5px solid #f0e0d0; border-radius: 25px; background: white; font-size: 0.9em; font-family: -apple-system, sans-serif; cursor: pointer; }
+  .feeling-btn.selected { border-color: #c4622d; background: #fff0e8; color: #c4622d; font-weight: 600; }
+  .comment-box { width: 100%; padding: 14px; border: 1.5px solid #f0e0d0; border-radius: 12px; font-size: 1em; background: #fdf6f0; min-height: 100px; margin-bottom: 25px; outline: none; resize: none; }
+  .submit-btn { width: 100%; padding: 18px; background: linear-gradient(135deg, #7c3c1e, #c4622d); color: white; border: none; border-radius: 15px; font-size: 1.1em; font-weight: 700; cursor: pointer; font-family: -apple-system, sans-serif; }
+  .thankyou { display: none; text-align: center; padding: 40px 20px; }
+  footer { text-align: center; padding: 40px; font-size: 0.8em; color: #bbb; font-family: -apple-system, sans-serif; }
+</style>
+</head>
+<body>
+
+<a class="back" href="../index.html"><span>←</span> Back to Library</a>
+
+<img class="story-img" src="../images/sharing-makes-us-stronger.png" alt="Sharing Makes Us Stronger">
+
+<div class="container">
+  <span class="tag">Courage & Connection</span>
+  <h1>Sharing Makes Us Stronger</h1>
+  
+  <div class="story-text">
+    <p>Priya was a new student in Ms. Carter’s third-grade class. She had just moved from Kenya to the US and was super excited to start at her new school. However on her first day she was a little nervous, she wondered “Will the other kids in school like me?”, and thought about making friends in her new school. When she got to school and walked into her classroom, all she heard was the loud chatter of her classmates. Everyone in class seemed busy mingling, and talking a lot about their weekends, birthday parties, and even the silly things their pets did.</p>
+    
+    <p>Priya was more reserved and was used to being more private. At her old school, her teachers told her to always be serious and only talk about schoolwork. She thought that if she talked about her family, the teacher and other kids might think she liked to goof around and wasn’t focused enough.</p>
+    
+    <p>One day, Ms. Carter announced that their class would do a new activity called “Show and Share.” Each student would have one minute to share something from their life before they started their group work. Some kids talked about their favorite games. Others shared funny stories about their siblings or pets.</p>
+    
+    <p>When it was Priya’s turn, she felt her heart thumping in her chest. She thought, “What if I say something wrong? What if my story is boring?” She almost didn’t speak, but then noticed how friendly and curious her classmates looked. She had made friends with another classmate Shelly, and she looked at Priya with eyes wide open, her face resting on her opened palms as her elbows stood on the table, eager to listen.</p>
+
+    <p>Priya decided to tell them about her delicious family dinners and how she misses the spicy soup her grandmother makes. Suddenly, Maya, one of the classmates, said, “Wow! I eat soup with my grandma, too, but mine’s tomato!” Other kids shared their own favorite family foods. Priya realized something: even though she was different, everyone had things in common.</p>
+    
+    <p>Later, at recess, Maya asked Priya and Shelly to join their group for a game. “Your story made me hungry!” Maya laughed. The other kids asked Priya about her old school, her favorite games, and even if she liked soccer. Priya started to feel like she belonged.</p>
+    
+    <p>The next week, Ms. Carter told the class about a time she spilled water all over her papers before a big meeting. She laughed and said, “We all make mistakes!” The kids giggled and started sharing their own stories of funny goof-ups.</p>
+    
+    <p>Priya smiled and felt proud. She learned that sharing your own story, even a little bit, makes it easier to connect and make friends. She found that when people know just a little about what makes each person special, it brings them closer. And, most importantly, she realized that being herself was her very own super power.</p>
+  </div>
+
+  <div class="moral">
+    <strong>Your Super Power</strong>
+    "Sharing a little about yourself helps others understand you, brings people closer together, and makes everyone feel included—because what makes us different can help us make friends!"
+  </div>
+
+  <div id="feedbackForm" class="feedback-section">
+    <h2>Did you like this story?</h2>
+    
+    <label class="field-label">Your Name</label>
+    <input type="text" id="readerName" class="name-input" placeholder="Type your name here...">
+
+    <div class="like-row">
+      <button class="like-btn" onclick="selectLike('yes', this)">👍</button>
+      <button class="like-btn" onclick="selectLike('no', this)">👎</button>
+    </div>
+
+    <label class="field-label">Star Rating</label>
+    <div class="stars">
+      <span class="star" onclick="setStar(1)">★</span>
+      <span class="star" onclick="setStar(2)">★</span>
+      <span class="star" onclick="setStar(3)">★</span>
+      <span class="star" onclick="setStar(4)">★</span>
+      <span class="star" onclick="setStar(5)">★</span>
+    </div>
+
+    <label class="field-label">How did it make you feel?</label>
+    <div class="feelings">
+      <button class="feeling-btn" onclick="toggleFeeling('Proud', this)">Proud 😊</button>
+      <button class="feeling-btn" onclick="toggleFeeling('Brave', this)">Brave 🦁</button>
+      <button class="feeling-btn" onclick="toggleFeeling('Included', this)">Included 🤝</button>
+    </div>
+
+    <label class="field-label">Message for Dad</label>
+    <textarea id="comment" class="comment-box" placeholder="What was your favorite part?"></textarea>
+
+    <button id="submitBtn" class="submit-btn" onclick="submitFeedback()">Send Feedback</button>
+  </div>
+
+  <div id="thankYou" class="thankyou">
+    <div style="font-size: 3em;">🌍</div>
+    <h3>You are wonderful!</h3>
+    <p>Dad received your message. See you at home!</p>
+  </div>
+</div>
+
+<footer>&copy; 2024 Stories for My Daughter</footer>
+
+<script>
+  const API = 'https://api.jsonbin.io/v3';
+  const BIN_ID = 'YOUR_BIN_ID_HERE'; 
+  const JSONBIN_KEY = 'YOUR_SECRET_KEY_HERE';
+  const STORY_ID = 'sharing-makes-us-stronger';
+
+  let selectedLike = null;
+  let selectedStar = 0;
+  let selectedFeelings = [];
+
+  function selectLike(val, btn) {
+    selectedLike = val;
+    document.querySelectorAll('.like-btn').forEach(b => b.classList.remove('selected-yes', 'selected-no'));
+    btn.classList.add(val === 'yes' ? 'selected-yes' : 'selected-no');
+  }
+
+  function setStar(n) {
+    selectedStar = n;
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((s, i) => s.classList.toggle('active', i < n));
+  }
+
+  function toggleFeeling(f, btn) {
+    if (selectedFeelings.includes(f)) {
+      selectedFeelings = selectedFeelings.filter(x => x !== f);
+      btn.classList.remove('selected');
+    } else {
+      selectedFeelings.push(f);
+      btn.classList.add('selected');
+    }
+  }
+
+  async function submitFeedback() {
+    const name = document.getElementById('readerName').value.trim();
+    if (!name || !selectedLike || !selectedStar) {
+      alert('Please fill in your name, a thumbs up/down, and a star rating!');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const entry = {
+      id: Date.now(),
+      story: STORY_ID,
+      name: name,
+      liked: selectedLike,
+      stars: selectedStar,
+      feelings: selectedFeelings,
+      comment: document.getElementById('comment').value.trim(),
+      date: new Date().toLocaleDateString()
+    };
+
+    try {
+      const res = await fetch(`${API}/b/${BIN_ID}/latest`, {
+        headers: { 'X-Master-Key': JSONBIN_KEY }
+      });
+      const data = await res.json();
+      const record = data.record || { stories: {} };
+      if (!record.stories[STORY_ID]) record.stories[STORY_ID] = [];
+      record.stories[STORY_ID].push(entry);
+
+      await fetch(`${API}/b/${BIN_ID}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'X-Master-Key': JSONBIN_KEY },
+        body: JSON.stringify(record)
+      });
+
+      document.getElementById('feedbackForm').style.display = 'none';
+      document.getElementById('thankYou').style.display = 'block';
+    } catch (e) {
+      alert('Something went wrong. Please try again!');
+      btn.textContent = 'Send Feedback';
+      btn.disabled = false;
+    }
+  }
+</script>
+
+</body>
+</html>

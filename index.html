@@ -120,6 +120,15 @@
     else { document.getElementById('pinError').style.display = 'block'; document.getElementById('pinInput').value = ''; document.getElementById('pinInput').focus(); }
   }
 </script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(function(reg) { console.log('SW registered:', reg.scope); })
+        .catch(function(err) { console.log('SW failed:', err); });
+    });
+  }
+</script>
 
 </body>
 </html>

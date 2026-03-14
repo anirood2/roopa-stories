@@ -5,12 +5,13 @@ const CACHE_NAME = ‘roopa-stories-v1’;
 
 // Files to cache immediately on install
 const PRECACHE_URLS = [
-‘/’,
-‘/index.html’,
-‘/stories/the-treehouse.html’,
-‘/stories/treasures-and-character.html’,
-‘/stories/the-colors-that-wouldnt-come-out.html’
+  './',
+  './index.html',
+  './stories/the-treehouse.html',
+  './stories/treasures-and-character.html',
+  './stories/the-colors-that-wouldnt-come-out.html'
 ];
+
 
 // Install: pre-cache core pages
 self.addEventListener(‘install’, function(event) {

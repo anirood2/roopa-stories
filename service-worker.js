@@ -1,11 +1,11 @@
 const CACHE_NAME = ‘roopa-stories-v1’;
 
 const PRECACHE_URLS = [
-‘/roopa-stories/’,
-‘/roopa-stories/index.html’,
-‘/roopa-stories/stories/the-treehouse.html’,
-‘/roopa-stories/stories/treasures-and-character.html’,
-‘/roopa-stories/stories/the-colors-that-wouldnt-come-out.html’
+‘/’,
+‘/index.html’,
+‘/stories/the-treehouse.html’,
+‘/stories/treasures-and-character.html’,
+‘/stories/the-colors-that-wouldnt-come-out.html’
 ];
 
 self.addEventListener(‘install’, function(event) {
@@ -49,7 +49,7 @@ return networkResponse;
 })
 .catch(function() {
 return caches.match(event.request).then(function(cachedResponse) {
-return cachedResponse || caches.match(’/roopa-stories/index.html’);
+return cachedResponse || caches.match(’/index.html’);
 });
 })
 );

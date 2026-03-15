@@ -2,21 +2,21 @@
   "name": "Roopa Stories",
   "short_name": "Roopa Stories",
   "description": "Warm illustrated children's stories with heart. Read, feel, and grow.",
-  "start_url": "/roopa-stories/",
-  "scope": "/roopa-stories/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#f2d4d7",
   "theme_color": "#b76e79",
   "categories": ["kids", "education", "books"],
   "icons": [
-    { "src": "/roopa-stories/icons/icon-72.png",  "sizes": "72x72",   "type": "image/png", "purpose": "any maskable" },
-    { "src": "/roopa-stories/icons/icon-96.png",  "sizes": "96x96",   "type": "image/png", "purpose": "any maskable" },
-    { "src": "/roopa-stories/icons/icon-128.png", "sizes": "128x128", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/roopa-stories/icons/icon-144.png", "sizes": "144x144", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/roopa-stories/icons/icon-152.png", "sizes": "152x152", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/roopa-stories/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/roopa-stories/icons/icon-384.png", "sizes": "384x384", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/roopa-stories/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    { "src": "/icons/icon-72.png",  "sizes": "72x72",   "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-96.png",  "sizes": "96x96",   "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-128.png", "sizes": "128x128", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-144.png", "sizes": "144x144", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-152.png", "sizes": "152x152", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-384.png", "sizes": "384x384", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }
